@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="euc-kor">
+
+</html>
+
+<head>
+
+
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .test {
+            width: 100%;
+
+        }
+
+        .grid {
+            display: grid;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .grid-sizer,
+        .grid-item {
+            width: 30%;
+            min-width: 270px;
+            max-width: 300px;
+        }
+
+        /* .grid-sizer, .grid-item { width: 200px; } */
+        .grid-item {
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            display: grid;
+            width: 100%;
+        }
+
+        .grid-item span {
+            display: grid;
+            max-height: 200px;
+            overflow: auto;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .grid-item span::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera*/
+        }
+
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- content -->
+
+    <!-- <div class="test"> -->
+    <div class="test">
+        <div id="grid" class="grid">
+            <div class="grid-sizer" <div
+                class="grid-item max-w-xs rounded-2xl overflow-hidden shadow-lg my-2 hover:grow hover:shadow-lg"
+                OnClick="location.href ='./post.jsp?id=<%=postID%>'" style="cursor:pointer;">
+                <div class="w-full flex justify-between p-3">
+                    <div class="flex">
+                        <div class="rounded-full h-8 w-8 flex items-center justify-center overflow-hidden">
+                            <img src=<%=profile %> alt="profilepic">
+                        </div>
+                        <span class="pt-1 ml-2 font-bold text-sm" style="margin-right: 100px">
+                            <%=id%>
+                        </span>
+                    </div>
+                </div>
+                <div class="max-w-xs overflow-hidden">
+                    <img id="image" class="w-full" src=<%=img%> alt="Sunset in the mountains">
+                    <div class="px-6 py-4">
+                        <span class="text-grey-darker text-base">
+                            <%=content%>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var msnry = new Masonry('.grid', {
+                    itemSelector: '.grid-item',
+                    // columnWidth: 200
+                    columnWidth: '.grid-sizer',
+                    percentPosition: true,
+                    gutter: 30,
+                    //horizontalOrder: true,
+                });
+                imagesLoaded('.grid').on('progress', function () {
+                    msnry.layout();
+                });
+
+
+
+
+
+            </script>
+            <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</body>
+
+</html>
